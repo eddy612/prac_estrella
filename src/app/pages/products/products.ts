@@ -29,4 +29,18 @@ export class Productos {
   obtenerSimilares(producto: Product): Product[] {
     return this.productos.filter(p => p.categoria === producto.categoria && p.id !== producto.id);
   }
+  carrito: Product[] = [];
+
+agregarAlCarrito(producto: Product) {
+  this.carrito.push(producto);
+}
+
+eliminarDelCarrito(producto: Product) {
+  this.carrito = this.carrito.filter(p => p.id !== producto.id);
+}
+
+obtenerTotal(): number {
+  return this.carrito.reduce((total, prod) => total + prod.precio, 0);
+}
+
 }

@@ -9,7 +9,9 @@
       <p>{{ producto.descripcion }}</p>
       <strong>{{ producto.precio | currency }}</strong>
       <br>
-      <button (click)="verMas(producto)">Ver más</button>
+      <button class="ver-mas" (click)="verMas(producto)">🔍 Ver más</button>
+    <button class="agregar" (click)="agregarAlCarrito(producto)">🛒 Agregar al carrito</button>
+
     </article>
   }
 </section>
@@ -31,3 +33,13 @@
     </ul>
   </div>
 </div>
+<section class="carrito" *ngIf="carrito.length > 0">
+  <h2>Carrito de compras</h2>
+  <ul>
+    <li *ngFor="let item of carrito">
+      {{ item.nombre }} - {{ item.precio | currency }}
+      <button (click)="eliminarDelCarrito(item)">Eliminar</button>
+    </li>
+  </ul>
+  <p>Total: {{ obtenerTotal() | currency }}</p>
+</section>
