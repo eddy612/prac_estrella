@@ -1,14 +1,33 @@
 <h1>Nuestros productos</h1>
 <img src="/img/Maquillaje1.jpg" alt="">
+
 <section class="productos">
-    @for(producto of productos; track producto.id){
-        <article class="producto">
-            <img [src]="producto.imagen" [alt]="producto.nombre">
-            <h3>{{producto.nombre}}</h3>
-            <p>{{producto.descripcion}}</p>
-            <strong>{{producto.precio}}</strong>
-            <br>
-            <button>Ver más</button>
-        </article>
-    }
+  @for(producto of productos; track producto.id) {
+    <article class="producto">
+      <img [src]="producto.imagen" [alt]="producto.nombre">
+      <h3>{{ producto.nombre }}</h3>
+      <p>{{ producto.descripcion }}</p>
+      <strong>{{ producto.precio | currency }}</strong>
+      <br>
+      <button (click)="verMas(producto)">Ver más</button>
+    </article>
+  }
 </section>
+
+<!-- Modal -->
+<div class="modal" *ngIf="productoSeleccionado">
+  <div class="modal-contenido">
+    <span class="cerrar" (click)="cerrarDetalles()">&times;</span>
+    <h2>{{ productoSeleccionado?.nombre }}</h2>
+    <img [src]="productoSeleccionado?.imagen" alt="{{ productoSeleccionado?.nombre }}">
+    <p>{{ productoSeleccionado?.descripcion }}</p>
+    <strong>{{ productoSeleccionado?.precio | currency }}</strong>
+
+    <h4>Productos similares:</h4>
+    <ul>
+      <li *ngFor="let similar of obtenerSimilares(productoSeleccionado!)">
+        {{ similar.nombre }}
+      </li>
+    </ul>
+  </div>
+</div>
