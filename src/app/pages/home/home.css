@@ -1,5 +1,10 @@
-h1{
+h1 {
     text-align: center;
-    font-size: 40px;
-    letter-spacing: 10px;
+    font-size: 48px;
+    letter-spacing: 6px;
+    font-family: 'Poppins', sans-serif;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    margin: 40px 0;
+    line-height: 1.2;
 }
