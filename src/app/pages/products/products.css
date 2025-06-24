@@ -119,16 +119,16 @@ h1 {
   background-color: #388e3c;
 }
 button {
-  padding: 12px 20px;
-  font-size: 1rem;
-  font-weight: bold;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin: 6px;
+  margin: 4px;
   color: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 /* Ver más - azul degradado */
